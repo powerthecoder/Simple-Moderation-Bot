@@ -90,6 +90,13 @@ client.on('message', message => {
             message.reply(embed);
         }
     }
+
+    else if (command === "about"){
+        const embed = new Discord.MessageEmbed()
+            .setTitle("About")
+            .setDescription("**Developer:** <@255876083918831616> \n**GitHub:** https://github.com/powerthecoder \n**Website:** https://powerthecoder.xyz");
+        message.reply(embed);
+    }
 });
 
 client.login(token);
