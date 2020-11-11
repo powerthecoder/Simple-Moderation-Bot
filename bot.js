@@ -13,7 +13,7 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === "kick"){
+    if (command === "ban"){
         const user = message.mentions.users.first();
         if (user){
             const member = message.guild.member(user);
@@ -23,8 +23,8 @@ client.on('message', message => {
                     .then(() => {
                         const embed = new Discord.MessageEmbed()
                             .setColor("#FF0000")
-                            .setTitle("Kicked Member")
-                            .setDescription(`Kicked ${user.tag}`);
+                            .setTitle("Banned Member")
+                            .setDescription(`Banned ${user.tag}`);
                         message.reply(embed);
                     })
                     .catch(error => {
@@ -52,8 +52,7 @@ client.on('message', message => {
         }
     }
 
-
-    else if (command === "ban"){
+    else if (command === "kick"){
         const user = message.mentions.users.first();
         if (user){
             const member = message.guild.member(user);
@@ -63,8 +62,8 @@ client.on('message', message => {
                     .then(() => {
                         const embed = new Discord.MessageEmbed()
                             .setColor("#FF0000")
-                            .setTitle("Banned Member")
-                            .setDescription(`Banned ${user.tag}`);
+                            .setTitle("Kicked Member")
+                            .setDescription(`Kicked ${user.tag}`);
                         message.reply(embed);
                     })
                     .catch(error => {
